@@ -13,8 +13,8 @@ C = cell(1, len);
 V = cell(1, len);
 
 for i = 1 : len
-    v = eVectors(cNodes{i}, :);    % vectors in i-th cluster
-    sz = size(eVectors, 2);        % dimension of vectors
+    v = eVectors(cNodes{i}, :); % vectors in i-th cluster
+    sz = size(eVectors, 2);     % dimension of vectors
     m = zeros(1, sz);
     for j = 1 : sz
         m(j) = mean(v(:, j)); % centroid of vectors

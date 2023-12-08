@@ -11,9 +11,11 @@ rat = [5 2 2 2 2];
 rat = rat/sum(rat);
 maxIter = 25;
 [G, gNodes, gPlot] = connectedGraph(v, k, pInter, pIntra, sizeG, rat, maxIter);
+exportgraphics(gca, 'graph.png');
 
 %% Component Plot
 compPlot = componentPlot(G);
+exportgraphics(compPlot, 'comp.png');
 
 %% Naive Fiedler
 
@@ -24,6 +26,7 @@ formatSpec = "n = %d, tol = %.2f";
 sTitle = sprintf(formatSpec, n1, tol1);
 ttl = "Naive Fiedler Partitioning";
 sPlotN1 = subgraphPlot(G, sGraphN1, ttl, sTitle);
+exportgraphics(gca, 'naive1.png');
 
 % Test 2
 n2 = 4; tol2 = 0.12;
@@ -32,6 +35,7 @@ formatSpec = "n = %d, tol = %.2f";
 sTitle = sprintf(formatSpec, n2, tol2);
 ttl = "Naive Fiedler Partitioning";
 sPlotN2 = subgraphPlot(G, sGraphN2, ttl, sTitle);
+exportgraphics(gca, 'naive2.png');
 
 %% k-means Fiedler
 
@@ -45,6 +49,7 @@ formatSpec = "n = %d, k = %d \n method = '%s', metric = '%s'";
 sTitle = sprintf(formatSpec, n3, k1, method, metric);
 ttl = "k-means Fiedler Partitioning";
 sPlotK1 = subgraphPlot(G, sGraphK1, ttl, sTitle);
+exportgraphics(gca, 'kmeans1.png');
 
 % Test 2
 n4 = 4; k2 = 5;
@@ -53,7 +58,9 @@ formatSpec = "n = %d, k = %d \n method = '%s', metric = '%s'";
 sTitle = sprintf(formatSpec, n4, k2, method, metric);
 ttl = "k-means Fiedler Partitioning";
 sPlotK2 = subgraphPlot(G, sGraphK2, ttl, sTitle);
+exportgraphics(gca, 'kmeans2.png');
 
+close all
 %% Cluster Validation
 
 % Accuracy
